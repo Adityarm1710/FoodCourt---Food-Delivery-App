@@ -1,0 +1,98 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* *{
+  padding:0;
+  margin:0;
+}
+.header{
+  margin-top: 0px;
+  background-color: brown;
+  display:flex;
+  justify-content: space-between;
+}
+.logo{
+  width: 80px;
+  margin:2px;
+  padding-left: 20px;
+  padding-top: 7px;
+}
+.nav-items{
+  margin-left:800px;
+  padding-top: 15px;
+  padding-right: 20px;
+  padding-left:50px;
+  cursor: pointer;
+}
+.nav-items>ul{
+  display:flex;
+}
+.nav-items>ul>li{
+  font-size: 24px;
+  padding:8px;
+  margin:10px;
+  list-style-type: none; 
+  text-decoration: none;
+  color: black;
+}
+.searchbox{
+  margin:5px;
+}
+.res-container{
+   
+    display: flex;
+    flex-wrap: wrap;
+    padding-left:70px; 
+}
+.res-card{
+  margin:40px 10px; 
+  padding: 2px;
+  border:1px solid black;
+  width: 200px;
+  text-align: center;
+  border-radius: none;
+}
+.res-card:hover{
+    background-color: #f0f0f0;
+}
+.res-logo{
+  width: 100%;
+  border-radius: none;
+  cursor: pointer;
+}
+.filBtn{
+  margin-left: 1150px;
+  width:120px;
+  cursor:pointer;
+  margin-top:3px;
+}
+.logbtn{
+  margin-top: 1px;
+  width: 70px;
+  height:30px;
+}
+.filter{
+  display: flex;
+  margin: 1px;
+}
+.fakeUi{
+   display: flex;
+   flex-wrap: wrap;
+   padding-left:70px;
+}
+.fakeCard{
+  margin:40px 10px; 
+  padding: 2px;
+   width: 200px;
+   height: 400px;
+   background-color: #f0f0f0;
+   border:1px solid black;
+}
+.userimg{
+  border: 1px solid black;
+  border-radius: 50%;
+  width: 20%;
+} */
+
+
