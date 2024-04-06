@@ -14,6 +14,8 @@ export const Body = () => {
   usegetsliderdata();
 
   const sliderData = useSelector((store) => store?.slider?.sliderList);
+  const sliderTitle = useSelector((store)=>store?.slider?.sliderTitle);
+  // console.log(sliderTitle);
 
   async function fetchRestaurants() {
     const data = await fetch(
@@ -40,7 +42,7 @@ export const Body = () => {
       <div className="mt-3 flex justify-center">
         <div className="ml-10">
           <input
-            className="border border-solid border-black w-[300px] py-2 rounded-md "
+            className="border border-s-2 px-2  border-black w-[300px] py-2 rounded-md"
             type="text"
             value={searchtext}
             placeholder="Type Hotels Here..."
@@ -74,22 +76,29 @@ export const Body = () => {
           Top Hotels
         </button>
       </div>
-      <div>
-        {/* <h1 className="font-bold text-black text-2xl">{SliderTitle}</h1> */}
-        <div className="flex overflow-x-scroll mt-5 ml-10 w-[94%]">
+      <div className="mt-3">
+        <h1 className="ml-10 font-bold text-black text-md">{sliderTitle}</h1>
+        <div className="flex overflow-x-scroll mt-2 ml-10 w-[94%]">
           <div className="flex">
             {sliderData?.map((resto) => (
+              <Link key={resto.info.id} to={"/restaurants/" + resto.info.id}>
               <RestaurantCard restaurant={resto} />
+              </Link>
             ))}
           </div>
         </div>
       </div>
-      <div className="mt-14 flex flex-wrap justify-evenly m-3">
+      <div className="mt-8">
+      <h1 className="ml-10 font-bold text-black text-md">  
+      Restaurants with online food delivery in Bangalore
+      </h1>
+      <div className=" flex flex-wrap justify-evenly mt-2">
         {filteredList?.map((restdata) => (
           <Link key={restdata.info.id} to={"/restaurants/" + restdata.info.id}>
             <RestaurantCard restaurant={restdata} />
           </Link>
         ))}
+      </div>
       </div>
     </div>
   );
