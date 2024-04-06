@@ -75,7 +75,7 @@ export const Body = () => {
         </button>
       </div>
       <div>
-        <h1 className="font-bold text-black text-2xl">{SliderTitle}</h1>
+        {/* <h1 className="font-bold text-black text-2xl">{SliderTitle}</h1> */}
         <div className="flex overflow-x-scroll mt-5 ml-10 w-[94%]">
           <div className="flex">
             {sliderData?.map((resto) => (
