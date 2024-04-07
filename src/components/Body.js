@@ -5,6 +5,8 @@ import { Link } from "react-router-dom";
 import usegetsliderdata from "../hooks/Usegetsliderdata";
 import { useSelector } from "react-redux";
 import Loader from "./Loader";
+import usegettopsliderdata from "../hooks/Usegettopsliderdata";
+import Topslidercard from "./Topslidercard";
 
 export const Body = () => {
   const [resList, setresList] = useState([]);
@@ -12,10 +14,14 @@ export const Body = () => {
   const [searchtext, setsearchtext] = useState("");
 
   usegetsliderdata();
+  usegettopsliderdata();
 
   const sliderData = useSelector((store) => store?.slider?.sliderList);
-  const sliderTitle = useSelector((store)=>store?.slider?.sliderTitle);
-  // console.log(sliderTitle);
+  const sliderTitle = useSelector((store) => store?.slider?.sliderTitle);
+  const topsliderList = useSelector((store) => store.topslider.topsliderList);
+  const topsliderTitle = useSelector((store) => store.topslider.topsliderTitle);
+
+  // if(!topsliderList || !topsliderTtitle) return null;
 
   async function fetchRestaurants() {
     const data = await fetch(
@@ -37,6 +43,9 @@ export const Body = () => {
   if (resList.length === 0) {
     return <Loader />;
   }
+
+  if(!topsliderList) { return <Loader/>; }
+
   return (
     <div className="mt-2">
       <div className="mt-3 flex justify-center">
@@ -76,9 +85,19 @@ export const Body = () => {
           Top Hotels
         </button>
       </div>
-      <div className="mt-3">
+      <div className="mt-4">
+        <h1 className="ml-10 font-bold text-md">{topsliderTitle}</h1>
+        <div className=" ml-10 mt-2 flex overflow-x-auto no-scrollbar whitespace-nowrap w-[94%]">
+          <div className="flex ">
+            {topsliderList?.map((item) => (
+              <Topslidercard data={item} />
+            ))}
+          </div>
+        </div>
+      </div>
+      <div className="mt-7">
         <h1 className="ml-10 font-bold text-black text-md">{sliderTitle}</h1>
-        <div className="flex overflow-x-scroll mt-2 ml-10 w-[94%]">
+        <div className="flex  overflow-x-auto no-scrollbar whitespace-nowrap mt-2 ml-10 w-[94%]">
           <div className="flex">
             {sliderData?.map((resto) => (
               <Link key={resto.info.id} to={"/restaurants/" + resto.info.id}>
@@ -99,7 +118,7 @@ export const Body = () => {
           </Link>
         ))}
       </div>
-      </div>
+      </div> 
     </div>
   );
 };

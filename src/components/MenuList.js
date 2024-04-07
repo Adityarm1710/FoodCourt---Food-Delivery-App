@@ -3,7 +3,7 @@ import { useState } from "react";
 
 const MenuList = (props) => {
   const { data,showItems,setshowIndex } = props;
-  //const [showItems,setshowIndex]=useState(false);
+  // const [showItems,setshowIndex]=useState(false);
   
   const handleAccordian= ()=>{
       
@@ -15,7 +15,7 @@ const MenuList = (props) => {
   }
 
   return (
-    <div className="w-8/12 mx-auto my-4 shadow-md bg-gray-200 ">
+    <div className="w-8/12 mx-auto my-5 shadow-md border-b-4 ">
       <div className="flex justify-between cursor-pointer" onClick={handleAccordian}>
         <span className="pl-1 font-bold ">
           {data?.title} ({data?.itemCards?.length})

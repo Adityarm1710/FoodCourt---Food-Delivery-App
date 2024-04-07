@@ -20,11 +20,7 @@ const RestaurantMenuCard = () => {
     );
 
     const json = await menu.json();
-
-    // console.log(json);
-    // console.log(json?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards);
     setresMenu(json?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards);
-    // console.log(json.data.cards[2].card.card.info);
     setresInfo(json?.data?.cards[2]?.card?.card?.info);
   };
 
@@ -40,21 +36,20 @@ const RestaurantMenuCard = () => {
     );
   });
 
-
- 
   return (
-    <div>
+    <div className="">
       <div className="bg-red-400 text-black text-center m-auto">
         <h1 className="text-5xl font-bold mt-1">{resInfo?.name}</h1>
         <h2 className="text-lg">{resInfo?.cuisines.join(", ")}</h2>
         <span className="font-bold rounded-full p-1 text-white bg-green-700 text-xs">⭐</span>
         <span className="ml-1 text-md">{resInfo?.avgRating}</span>
-        <h3 className="text-md mb-2">{resInfo?.areaName}</h3>
+        <h3 className="text-md mb-6">{resInfo?.areaName}</h3>
       </div>
       <div>
         {
         menuList?.map(
           (menu,index) => <MenuList data={menu?.card?.card} showItems={index===showIndex ? true:false} setshowIndex={()=>setshowIndex(index)} />
+          // (menu) => <MenuList data={menu?.card?.card} />
         )
         }
       </div>
